@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'routes/app_routes.dart';
+import 'widgets/bottomnavbar.dart';
 import 'screens/home_screen.dart';
-import 'screens/project_screen.dart';
+import 'screens/project/project_screen.dart';
 import 'screens/chat_screen.dart';
 import 'screens/customer_care_screen.dart';
 import 'screens/product_screen.dart';
-import 'widgets/bottomnavbar.dart';
+import 'screens/login/welcome_screen.dart';
+import 'screens/login/login_screen.dart';
+import 'screens/login/signup_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,10 +20,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: AppRoutes.home,
+      initialRoute: AppRoutes.welcome,
       routes: {
+        AppRoutes.welcome: (_) => WelcomeScreen(),
+        AppRoutes.login: (_) => LoginScreen(),
+        AppRoutes.signup: (_) => SignUpScreen(),
         AppRoutes.home: (_) => const MyHomePage(),
-        AppRoutes.project: (_) => const ProJect(),
+        AppRoutes.project: (_) => const ProjectScreen(),
         AppRoutes.chat: (_) => const Chat(),
         AppRoutes.product: (_) => const Product(),
         AppRoutes.customercate: (_) => const CustomerCare(),
@@ -41,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final List<Widget> _screens = const [
     HomeScreen(),
-    ProJect(),
+    ProjectScreen(),
     Chat(),
     Product(),
     CustomerCare(),
@@ -64,3 +70,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+ 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class BottomNavBar extends StatelessWidget {
   final int currentIndex;
@@ -16,26 +17,40 @@ class BottomNavBar extends StatelessWidget {
       currentIndex: currentIndex,
       onTap: onTap,
       type: BottomNavigationBarType.fixed,
-      items: const [
+      selectedLabelStyle: TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.bold,
+      ),
+      unselectedLabelStyle: TextStyle(
+        fontSize: 12,
+        fontWeight: FontWeight.normal,
+      ),
+      unselectedItemColor: const Color.fromARGB(255, 4, 0, 48),
+      items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: 'Home',
+          icon: SvgPicture.asset(
+            'assets/Icon/Home.svg',
+            width: 25,
+            height: 25,
+          ),
+          label: 'Home ',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.business),
-          label: 'Project',
+          icon: SvgPicture.asset('assets/Icon/Case.svg', width: 25, height: 25),
+          label: 'ProJect',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.chat),
+          icon: SvgPicture.asset('assets/Icon/Message.svg',
+              width: 25, height: 25),
           label: 'Chat',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.shopping_bag),
+          icon: SvgPicture.asset('assets/Icon/Bag2.svg', width: 25, height: 25),
           label: 'Product',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          label: 'Customer',
+          icon: SvgPicture.asset('assets/Icon/User.svg', width: 25, height: 25),
+          label: 'Support ',
         ),
       ],
     );
